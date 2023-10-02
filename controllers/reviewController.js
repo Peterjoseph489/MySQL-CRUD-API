@@ -18,6 +18,7 @@ const addReview =async (req, res) => {
 // 2. Get All Reviews
 const getAllReviews = async (req, res) => {
     const reviews = await Review.findAll({})
+    console.log(reviews)
     res.status(200).send(reviews)
 }
 

@@ -19,5 +19,7 @@ router.delete('/:id', productController.deleteProduct)
 router.post('/addReview', reviewController.addReview)
 router.get('/allReviews', reviewController.getAllReviews)
 
+// get product Reviews
+router.get('/getProductReviews', productController.getProductReviews)
 
 module.exports = router
