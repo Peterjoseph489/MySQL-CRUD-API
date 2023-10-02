@@ -46,6 +46,7 @@ const updateProduct = async (req, res) => {
     let id = req.params.id
     
     const product = await Product.update(req.body, { where: {id: id} })
+    console.log(product)
     res.status(200).send(product)
 }
 
@@ -60,8 +61,12 @@ const deleteProduct = async (req, res) => {
 // 6. get published Product
 const getPublishedProduct = async (req, res) => {
     
-    const products = await Product.findAll({ where: {publishhed: true} })
-    res.status(200).send(products)
+    const products = await Product.findAll({ where: {published: true} })
+    if (!products) {
+        res.status(400).send('Unable to find the Published Products')
+    } else {
+        res.status(201).send(products)
+    }
 }
 
 

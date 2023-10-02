@@ -20,7 +20,7 @@ const sequelize = new Sequelize(
 );
 
 sequelize.authenticate()
-,then(()=>{
+.then(()=>{
     console.log('connected..')
 })
 .catch((err)=>{
